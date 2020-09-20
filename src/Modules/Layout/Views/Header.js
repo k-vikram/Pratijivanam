@@ -6,9 +6,8 @@ import Col from 'react-bootstrap/Col';
 import Nav from 'react-bootstrap/Nav';
 
 const Header = () => {
-    console.log('render')
     return (<Row>
-        <Col sm={12}>
+        <Col xs={12}>
             <header>
                 <Nav
                     className='Header'
