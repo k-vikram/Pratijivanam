@@ -8,7 +8,9 @@ const Content = () => {
     return (
         <Row>
             <Col xs={12}>
-                <AllViews />
+                <div className='Card'>
+                    <AllViews />
+                </div>
             </Col>
         </Row>
     )

@@ -1,6 +1,5 @@
 import React from 'react';
-import Switch from 'react-router-dom/Switch';
-import Route from 'react-router-dom/Route';
+import {Switch, Route}  from 'react-router-dom';
 
 import Home from './Home';
 import New from './New';
@@ -10,10 +9,11 @@ import Ask from './Ask';
 const Content = () => {
     return (
         <Switch>
-            <Route exact path={"/home"} component={Home} ></Route>
-            <Route path={"/new"} component={New} ></Route>
-            <Route path={"/comments"} component={Comments} ></Route>
-            <Route path={"/ask"} component={Ask} ></Route>
+            <Route exact path={"/"} component={Home} />
+            <Route path={"/home"} component={Home} />
+            <Route path={"/new"} component={New} />
+            <Route path={"/comments"} component={Comments} />
+            <Route path={"/ask"} component={Ask} />
         </Switch>
     )
 }
