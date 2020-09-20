@@ -17,7 +17,6 @@ const Header = () => {
                     <Nav.Item>
                         <Link to={"/home"}>
                             <Nav.Link as="div" eventKey="home">
-
                                 <img src={logo} className="App-logo" alt="logo" />
                             &nbsp;&nbsp;<strong>Hacker News</strong>
                             </Nav.Link>
