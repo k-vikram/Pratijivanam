@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import logo from './Assets/nh_logo.gif';
-import './App.css';
+import './App.scss';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
