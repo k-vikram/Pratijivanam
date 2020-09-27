@@ -33,6 +33,8 @@ const StoryCard = React.memo(({
     }, []);
     /* eslint-enable */
 
+    const DomainName = EvaluateDomainName(storyObj?.url);
+
     return (<Col xs={12} >
         {!storyObj ? <span>Loading Story {storyId} ....</span> :
             <div className='Custom-Grid'>
@@ -47,17 +49,24 @@ const StoryCard = React.memo(({
                             rel="noopener noreferrer"
                             className="Story-Title">
                             {storyObj.title}
-                        </a>&nbsp;&nbsp;
-                        <small className='text-grey'>(by: {storyObj.by})</small>
+                        </a>&nbsp;
+                        {DomainName && <small className='text-grey'>({DomainName})</small>}
                     </div>
                     <small className='text-grey'>
-                        {storyObj.score}&nbsp;&nbsp;&nbsp;&nbsp;{calcRelTime(storyObj.time)}
+                        {storyObj.score} points | by: {storyObj.by} | {calcRelTime(storyObj.time)} | {storyObj.kids?.length} comments
                     </small>
                 </div>
             </div>
         }
     </Col >)
 })
+
+const EvaluateDomainName = (url = '') => {
+    if(!url) { return ''; }
+    const domainCaptureExp = new RegExp(/[/]{1,2}(?:.*\.)?(.+\..{1,5})[/]/);
+    const result = domainCaptureExp.exec(url);
+    return result?.[1] || ''; 
+}
 
 export const callStoryAPI = async (resourceId = 0) => {
     if (resourceId) {
