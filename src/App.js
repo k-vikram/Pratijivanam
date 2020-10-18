@@ -1,25 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useReducer } from 'react';
+
+import './App.scss';
+import Container from 'react-bootstrap/Container';
+
+import Header from './Modules/Layout/Views/Header';
+import Content from './Modules/Layout/Views/Content';
+import Footer from './Modules/Layout/Views/Footer';
+
+export const AppWideContext = React.createContext();
+
+const initialState = {
+  allTopStories: [],
+  allNewStories: [],
+  allComments: []
+};
+
+export const FETCH_ALL_STORIES = 'FETCH_ALL_STORIES';
+
+const Story = (state, action) => {
+  switch (action.type) {
+    case FETCH_ALL_STORIES:
+      return { ...state, ...action.data }
+    default:
+      return state;
+  }
+}
 
 function App() {
+  const [globalState, dispatch] = useReducer(Story, initialState);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AppWideContext.Provider value={{ globalState, dispatch }}>
+      <Container>
+        <Header />
+        <Content />
+        <Footer />
+      </Container>
+    </AppWideContext.Provider>
   );
 }
 
