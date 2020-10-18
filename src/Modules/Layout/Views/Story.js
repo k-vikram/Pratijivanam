@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 
@@ -79,5 +80,9 @@ export const callStoryAPI = async (resourceId = 0) => {
 
 }
 
+StoryCard.propTypes = {
+    storyId: PropTypes.number.isRequired,
+    serialNo: PropTypes.number.isRequired
+}
 
 export default StoryCard;

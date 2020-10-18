@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -106,5 +107,9 @@ export const callStoriesAPI = async (resourceType = 'topstories') => {
     const finalList = await rawResponse.json();
     return finalList;
 }
+
+Home.propTypes = {
+    location: PropTypes.object.isRequired
+};
 
 export default React.memo(Home);
