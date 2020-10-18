@@ -19,7 +19,7 @@ const StoryCard = React.memo(({
 }) => {
     const [storyObj, changeStoryObj] = useState();
 
-    // make API call to fetch all current storiy
+    // make API call to fetch all current story
 
     /* eslint-disable */
     useEffect(() => {
