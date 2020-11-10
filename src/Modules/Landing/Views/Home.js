@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import PropTypes from 'prop-types';
-import { Link, Redirect } from 'react-router-dom';
+import { useLocation, Link, Redirect } from 'react-router-dom';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -9,10 +9,9 @@ import Story from '../../Layout/Views/Story';
 
 const RESULTS_PER_PAGE = 30;
 
-const Home = ({
-    location
-}) => {
-
+const Home = (
+) => {
+    const location = useLocation();
     const { globalState, dispatch } = useContext(AppWideContext);
     const { allTopStories } = globalState;
     const [callList, changeCallList] = useState([]);
@@ -67,7 +66,7 @@ const Home = ({
 
     return (
         <Row>
-            {callList.length > 0 ? <>
+            {callList.length > 0 ? <Col role="Content" name="Content">
                 <Col sm={12}>
                     {
                         callList.map((eachStoryId, sIndex) => <Story
@@ -94,7 +93,7 @@ const Home = ({
                         </div>
                     </div>
                 </Col>}
-            </>
+            </Col>
                 : pageNo < 1 ? <Redirect to={'/home'} /> :
                 <Col xs={12}>
                 </Col>
@@ -107,9 +106,5 @@ export const callStoriesAPI = async (resourceType = 'topstories') => {
     const finalList = await rawResponse.json();
     return finalList;
 }
-
-Home.propTypes = {
-    location: PropTypes.object.isRequired
-};
 
 export default React.memo(Home);
