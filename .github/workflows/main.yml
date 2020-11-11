@@ -31,5 +31,6 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Build and Run Tests
         run: |
+          yarn install,
           yarn run build,
           yarn run test --coverage
