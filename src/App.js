@@ -9,7 +9,7 @@ import Footer from './Modules/Layout/Views/Footer';
 
 export const AppWideContext = React.createContext();
 
-const initialState = {
+export const initialState = {
   allTopStories: [],
   allNewStories: [],
   allComments: []
@@ -17,7 +17,7 @@ const initialState = {
 
 export const FETCH_ALL_STORIES = 'FETCH_ALL_STORIES';
 
-const Story = (state, action) => {
+export const Story = (state, action) => {
   switch (action.type) {
     case FETCH_ALL_STORIES:
       return { ...state, ...action.data }

@@ -1,9 +1,18 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+
+// import react-testing methods
+import { render, screen } from '@testing-library/react';
+
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+const ProperAppComponent = () => <Router>
+  <App />
+</Router>;
+
+test('renders Hacker Rank link as general', () => {
+  // const { getByText } = render(<App />);
+  const testMessage = 'Hacker News';
+  render(<ProperAppComponent />);
+  expect(screen.getByText(testMessage)).toBeInTheDocument();
 });
