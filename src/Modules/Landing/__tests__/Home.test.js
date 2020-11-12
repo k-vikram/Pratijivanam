@@ -10,7 +10,6 @@ import { render, screen, waitFor } from '../../../utils/WrappedTestingLibrary';
 
 import Home from '../Views/Home';
 import MockTopStories from '../../../mockTopStories.json';
-import { any } from 'prop-types';
 
 
 // declare which API requests to mock
