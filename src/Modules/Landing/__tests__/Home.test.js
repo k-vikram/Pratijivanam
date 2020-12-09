@@ -25,7 +25,6 @@ beforeAll(() => {
     server.listen();
     render(<Home />);
   });
-  
 
   afterEach(() => server.resetHandlers())
   
@@ -34,13 +33,13 @@ beforeAll(() => {
 
 test('fetches all the top story ids', async () => {
     //Arrange
-   
+    //render(<Home />);
   
     //Act 
-    await waitFor(() =>
-    // getByRole throws an error if it cannot find an element
-    expect(screen.getByRole('Content')).toBeVisible()
-  )
+  //   await waitFor(() =>
+  //   // getByRole throws an error if it cannot find an element
+  //   expect(screen.getByRole('Content')).toBeVisible()
+  // )
     
   //Assert
    // expect(screen.getByRole('Content')).toHaveValue();
