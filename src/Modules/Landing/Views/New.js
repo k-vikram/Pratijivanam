@@ -1,3 +1,3 @@
 import React from 'react';
-const New = React.memo(() => {})
-export default New
+const New = () => {}
+export default React.memo(New)

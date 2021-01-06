@@ -14,7 +14,7 @@ const calcRelTime = (dateTime) => {
     return dayjs.unix(dateTime).fromNow();
 }
 
-const StoryCard = React.memo(({
+const StoryCard = ({
     storyId,
     serialNo
 }) => {
@@ -60,7 +60,7 @@ const StoryCard = React.memo(({
             </div>
         }
     </Col >)
-})
+}
 
 const EvaluateDomainName = (url = '') => {
     if(!url) { return ''; }
@@ -85,4 +85,4 @@ StoryCard.propTypes = {
     serialNo: PropTypes.number.isRequired
 }
 
-export default StoryCard;
+export default React.memo(StoryCard);
