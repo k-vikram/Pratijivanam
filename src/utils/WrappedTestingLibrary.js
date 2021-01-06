@@ -3,6 +3,9 @@
 import React, { useReducer } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react'
+import { any } from 'prop-types';
+
+
 
 import { AppWideContext, Story, initialState } from '../App'
 
@@ -19,6 +22,9 @@ const AllTheProviders = ({ children }) => {
     )
 }
 
+AllTheProviders.propTypes = {
+    children: any
+}
 const customRender = (ui, options) =>
     render(ui, { wrapper: AllTheProviders, ...options })
 

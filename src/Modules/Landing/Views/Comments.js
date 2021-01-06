@@ -1,3 +1,3 @@
 import React from 'react';
-const Comments = React.memo(() => {})
-export default Comments
+const Comments = () => {}
+export default  React.memo(Comments)

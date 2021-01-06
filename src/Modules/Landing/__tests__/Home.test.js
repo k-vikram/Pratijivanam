@@ -6,7 +6,7 @@ import { setupServer } from 'msw/node'
 
 // import react-testing methods
 // import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import { render, screen, waitFor } from '../../../utils/WrappedTestingLibrary';
+import { render } from '../../../utils/WrappedTestingLibrary';
 
 import Home from '../Views/Home';
 import MockTopStories from '../../../mockTopStories.json';

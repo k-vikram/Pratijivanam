@@ -1,3 +1,3 @@
 import React from 'react';
-const Ask = React.memo(() => {})
-export default Ask
+const Ask = () => null;
+export default React.memo(Ask)
