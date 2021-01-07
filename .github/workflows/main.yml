@@ -39,3 +39,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Test Cases
         run:  yarn run test --coverage
+        
+      # Runs a single command using the runners shell
+      - name: Lint Code
+        run:  yarn fix-lint
