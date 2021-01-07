@@ -63,7 +63,6 @@ const Home = (
     }, [pageNo, allTopStories])
 
     /* eslint-enable */
-    console.log('hi')
     return (
         <Row>
             {callList.length > 0 ? <Col role="Content" name="Content">
