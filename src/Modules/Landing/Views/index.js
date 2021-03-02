@@ -3,8 +3,8 @@ import {Switch, Route}  from 'react-router-dom';
 
 import Home from './Home';
 import New from './New';
-import Comments from './Comments';
-import Ask from './Ask';
+// import Comments from './Comments';
+// import Ask from './Ask';
 
 const Content = () => {
     return (
@@ -12,8 +12,8 @@ const Content = () => {
             <Route exact path={"/"} component={Home} />
             <Route path={"/home"} component={Home} />
             <Route path={"/new"} component={New} />
-            <Route path={"/comments"} component={Comments} />
-            <Route path={"/ask"} component={Ask} />
+            {/* <Route path={"/comments"} component={Comments} /> */}
+            {/* <Route path={"/ask"} component={Ask} /> */}
         </Switch>
     )
 }

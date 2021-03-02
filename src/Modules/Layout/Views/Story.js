@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-
 import Col from 'react-bootstrap/Col';
+
+import { CallStoryAPI } from '../../../utils/ApiCalls';
+import { EvaluateDomainName } from '../../../utils/HelperUtils';
 
 dayjs.extend(relativeTime)
 
@@ -25,7 +27,7 @@ const StoryCard = ({
     /* eslint-disable */
     useEffect(() => {
         if (!storyObj) {
-            callStoryAPI(storyId)
+            CallStoryAPI(storyId)
                 .then(storyObj => {
                     changeStoryObj(storyObj)
                 })
@@ -60,24 +62,6 @@ const StoryCard = ({
             </div>
         }
     </Col >)
-}
-
-const EvaluateDomainName = (url = '') => {
-    if(!url) { return ''; }
-    const domainCaptureExp = new RegExp(/[/]{1,2}(?:.*\.)?(.+\..{1,5})[/]/);
-    const result = domainCaptureExp.exec(url);
-    return result?.[1] || ''; 
-}
-
-export const callStoryAPI = async (resourceId = 0) => {
-    if (resourceId) {
-        const rawResponse = await fetch(`https://hacker-news.firebaseio.com/v0/item/${resourceId}.json?print=pretty`);
-        const finalList = await rawResponse.json();
-        return finalList;
-    } else {
-        return [];
-    }
-
 }
 
 StoryCard.propTypes = {
