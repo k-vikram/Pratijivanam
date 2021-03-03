@@ -35,14 +35,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Build Packages
         run:  yarn run build
-     
-      # Runs a single command using the runners shell
-      - name: Test Cases
-        run:  yarn run test --coverage
-        
-      # Runs a single command using the runners shell
-      - name: Lint Code
-        run:  yarn fix-lint
         
   # Job Testing the project     
   test_proj:
