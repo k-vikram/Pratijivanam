@@ -1,4 +1,4 @@
-![CI](https://github.com/k-vikram/Pratijivanam/workflows/CI/badge.svg?branch=develop)
+[![CI](https://github.com/k-vikram/Pratijivanam/actions/workflows/main.yml/badge.svg)](https://github.com/k-vikram/Pratijivanam/actions/workflows/main.yml)
 
 [Live Link](https://hncloneapp.netlify.app)
 
