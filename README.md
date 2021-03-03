@@ -1,6 +1,6 @@
 ![CI](https://github.com/k-vikram/Pratijivanam/workflows/CI/badge.svg?branch=develop)
 
-#[Live Link](https://hncloneapp.netlify.app)
+[Live Link](https://hncloneapp.netlify.app)
 
 This is Hacker News Clone SPA built with Create-React-App (hooks + context APIs for state management), react-router (hooks), Github Actions CI (basics) ,ESLINT, Prop-types. Has response caching, pagination additionally. First step project to begin on a long road.
 
