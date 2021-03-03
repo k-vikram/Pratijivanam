@@ -14,9 +14,9 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   # This workflow contains a single job called "my_custom_build"
-  my_custom_build:
+  build_proj:
     # The type of runner that the job will run on
-    name: Test Workflow
+    name: Build Workflow
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -42,4 +42,42 @@ jobs:
         
       # Runs a single command using the runners shell
       - name: Lint Code
+        run:  yarn fix-lint
+        
+  # Job Testing the project     
+  test_proj:
+    # The type of runner that the job will run on
+     name: Test Workflow
+     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Start Workflow Message Display
+        run: echo Beginning the Custom Workflow Test!
+
+      # Runs a single command using the runners shell
+      - name: Test Cases
+        run:  yarn run test --coverage
+        
+  # Job Testing the project     
+  lint_proj:
+    # The type of runner that the job will run on
+     name: Lint Workflow
+     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Runs a single command using the runners shell
+      - name: Start Workflow Message Display
+        run: echo Beginning the Custom Workflow Code Lint!
+
+      # Runs a single command using the runners shell
+      - name: Test Cases
         run:  yarn fix-lint
