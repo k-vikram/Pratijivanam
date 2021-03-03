@@ -27,7 +27,7 @@ const Header = () => {
                             New
                     </Nav.Link>
                     </Link>
-                    <Link to={"/comments"}>
+                    {/* <Link to={"/comments"}>
                         <Nav.Link as="div" eventKey="comments">
                             Comments
                     </Nav.Link>
@@ -36,7 +36,7 @@ const Header = () => {
                         <Nav.Link as="div" eventKey="ask">
                             Ask
                         </Nav.Link>
-                    </Link>
+                    </Link> */}
                 </Nav>
             </header>
         </Col>

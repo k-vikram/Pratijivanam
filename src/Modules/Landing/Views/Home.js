@@ -4,19 +4,21 @@ import { useLocation, Link, Redirect } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
+import { CallStoriesAPI } from '../../../utils/ApiCalls';
+import { RESULTS_PER_PAGE } from '../../../utils/Constants';
 import { AppWideContext, FETCH_ALL_STORIES } from "../../../App";
 import Story from '../../Layout/Views/Story';
-
-const RESULTS_PER_PAGE = 30;
 
 const Home = (
 ) => {
     const location = useLocation();
     const { globalState, dispatch } = useContext(AppWideContext);
     const { allTopStories } = globalState;
-    const [callList, changeCallList] = useState([]);
+    const [ callList, changeCallList ] = useState([]);
 
     const queryString = location?.search;
+
+    //custom pagination logic
     const pageNo = queryString ? (queryString.slice(1).indexOf('p=') > -1 ?
         parseInt(queryString.slice(1).split('=').pop(), 10)  : 1) : 1;
 
@@ -31,7 +33,7 @@ const Home = (
     // make API call to fetch all top stories
     useEffect(() => {
         if (allTopStories.length === 0) {
-            callStoriesAPI('topstories')
+            CallStoriesAPI('topstories')
                 .then(allStories => {
                     dispatch({
                         type: FETCH_ALL_STORIES,
@@ -63,7 +65,6 @@ const Home = (
     }, [pageNo, allTopStories])
 
     /* eslint-enable */
-
     return (
         <Row>
             {callList.length > 0 ? <Col role="Content" name="Content">
@@ -99,12 +100,6 @@ const Home = (
                 </Col>
             }
         </Row>)
-}
-
-export const callStoriesAPI = async (resourceType = 'topstories') => {
-    const rawResponse = await fetch(`https://hacker-news.firebaseio.com/v0/${resourceType}.json?print=pretty`);
-    const finalList = await rawResponse.json();
-    return finalList;
 }
 
 export default React.memo(Home);
