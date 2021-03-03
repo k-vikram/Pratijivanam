@@ -5,7 +5,7 @@ This is Hacker News Clone SPA built with Create-React-App (hooks + context APIs 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[Live Link](https://hncloneapp.netlify.app/new)
+[Live Link](https://hncloneapp.netlify.app)
 
 ## Available Scripts
 
